@@ -8,7 +8,9 @@ Uses the algorithms described in https://github.com/thumbor/thumbor/wiki/Detecti
 
 Requires python-opencv, install the dependency on debian with `apt install python-opencv`.
 
-Install the command using PIP: `pip install git+https://github.com/epixelic/python-smart-crop`
+Install pip if not already installed: `apt install python-pip`.
+
+Install the command using PIP: `pip install git+https://github.com/chtbks/python-smart-crop`
 
 Tested on Debian 8 and Ubuntu WSL.
 
