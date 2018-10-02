@@ -162,10 +162,11 @@ def smart_crop(image, target_width, target_height, destination, do_resize):
     print('Found center at', center)
 
     crop_pos = exact_crop(center, width, height, target_width, target_height)
-    print('Crop rectangle is', crop_pos)
+    print('Crop = ', crop_pos)
 
-    cropped = original[int(crop_pos['top']): int(crop_pos['bottom']), int(crop_pos['left']): int(crop_pos['right'])]
-    cv2.imwrite(destination, cropped)
+    if destination is not None:
+        cropped = original[int(crop_pos['top']): int(crop_pos['bottom']), int(crop_pos['left']): int(crop_pos['right'])]
+        cv2.imwrite(destination, cropped)
 
 
 def main():
@@ -173,7 +174,7 @@ def main():
     ap.add_argument("-W", "--width", required=True, help="Target width")
     ap.add_argument("-H", "--height", required=True, help="Target height")
     ap.add_argument("-i", "--image", required=True, help="Image to crop")
-    ap.add_argument("-o", "--output", required=True, help="Output")
+    ap.add_argument("-o", "--output", required=False, help="Output", default=None)
     ap.add_argument("-n", "--no-resize", required=False, default=False, action="store_true",
                     help="Don't resize image before treating it")
 
